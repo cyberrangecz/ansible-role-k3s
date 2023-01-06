@@ -1,0 +1,21 @@
+---
+
+- name: Install k3s
+  shell: curl -sfL https://get.k3s.io | sh -s -
+  args:
+    creates: /etc/rancher/k3s/k3s.yaml
+  register: result
+  until: "result is not failed"
+  retries: 10
+  delay: 10
+
+- name: Install apt packages
+  apt:
+    name:
+      - python3-yaml
+    update_cache: yes
+
+- name: Install helm
+  shell: curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+  args:
+    creates: /usr/local/bin/helm

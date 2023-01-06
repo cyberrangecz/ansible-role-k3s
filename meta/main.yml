@@ -1,0 +1,6 @@
+galaxy_info:
+  role_name: k3s
+  author: Tomas Sapak (139890@muni.cz)
+  description: Role for setting up k3s
+  company: Masaryk university
+  galaxy_tags: []
