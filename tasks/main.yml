@@ -1,7 +1,7 @@
 ---
 
 - name: Install k3s
-  shell: curl -sfL https://get.k3s.io | sh -s -
+  shell: INSTALL_K3S_VERSION="{{ k3s_version }}" curl -sfL https://get.k3s.io | sh -s -
   args:
     creates: /etc/rancher/k3s/k3s.yaml
   register: result
